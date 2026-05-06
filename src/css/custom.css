@@ -4,13 +4,13 @@
 
  :root {
   /* High contrast colors */
-  --ifm-color-primary: #e0ff00; /* Neon Yellow-Green */
-  --ifm-color-primary-dark: #c6e300;
-  --ifm-color-primary-darker: #bbd600;
-  --ifm-color-primary-darkest: #9ab000;
-  --ifm-color-primary-light: #e5ff26;
-  --ifm-color-primary-lighter: #e8ff39;
-  --ifm-color-primary-lightest: #efff73;
+  --ifm-color-primary: #3b82f6; /* Electric Blue */
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
 
   /* Brutalist UI variables */
   --brutalist-border-width: 3px;
@@ -43,7 +43,7 @@
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #e0ff00;
+  --ifm-color-primary: #3b82f6;
   --ifm-background-color: #000;
   --ifm-font-color-base: #fff;
   --ifm-navbar-background-color: #000;
