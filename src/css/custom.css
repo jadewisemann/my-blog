@@ -1,44 +1,31 @@
 /**
- * Stripe Developer & Engineering Aesthetic for Docusaurus
- * A blend of clean minimalism and subtle technical brutalism.
+ * Stripe.dev/blog Authentic Aesthetic for Docusaurus
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Stripe-inspired Palette */
+  /* Stripe Blog Palette */
   --bg: #ffffff;
   --ink: #1a1f36;
   --muted: #4f566b;
   --line: #e3e8ee;
   --accent: #635bff; /* Stripe Blurple */
   --accent-soft: #f6f9fc;
-  --paper: #ffffff;
   
-  /* Docusaurus Mapping */
   --ifm-color-primary: var(--accent);
-  --ifm-color-primary-dark: #5851db;
-  --ifm-color-primary-darker: #4c46bc;
-  --ifm-color-primary-darkest: #3a3592;
-  --ifm-color-primary-light: #7d75ff;
-  --ifm-color-primary-lighter: #9a94ff;
-  --ifm-color-primary-lightest: #c5c1ff;
-
   --ifm-background-color: var(--bg);
   --ifm-font-color-base: var(--ink);
   --ifm-navbar-background-color: var(--bg);
   
-  --ifm-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --ifm-font-family-monospace: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, monospace;
+  --ifm-font-family-base: "Inter", -apple-system, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", monospace;
   
-  --ifm-global-radius: 4px; /* Subtle curvature like Stripe */
-  --ifm-button-border-radius: 4px;
-  
+  --ifm-global-radius: 4px;
   --ifm-navbar-shadow: none;
-  --ifm-navbar-padding-vertical: 0.75rem;
+  --ifm-navbar-padding-vertical: 1rem;
   
-  /* Grid & Lines */
-  --thin-border: 1px solid var(--line);
+  --container-width: 1040px;
 }
 
 [data-theme='dark'] {
@@ -47,49 +34,45 @@
   --muted: #768390;
   --line: #22272e;
   --accent: #7d75ff;
-  --paper: #1c2128;
   --accent-soft: #161b22;
 }
 
-/* Base Styles */
+/* Global Styles */
 body {
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+.container {
+  max-width: var(--container-width);
 }
 
 /* Navbar */
 .navbar {
-  border-bottom: var(--thin-border);
+  border-bottom: 1px solid var(--line);
 }
 
-.navbar__title {
+.navbar__brand {
   font-weight: 700;
-  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
 .navbar__item {
   font-weight: 500;
-  font-size: 0.95rem;
+  color: var(--muted);
 }
 
-/* Cards & Containers */
-.card {
-  border: var(--thin-border) !important;
-  background: var(--paper) !important;
-  border-radius: var(--ifm-global-radius) !important;
-  box-shadow: none !important;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+.navbar__item:hover {
+  color: var(--accent);
 }
 
-.card:hover {
-  border-color: var(--accent) !important;
-}
-
-/* Blog List Page */
+/* Blog List Page (stripe.dev/blog Style) */
 .blog-list-page article {
-  border-bottom: var(--thin-border);
-  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--line);
   margin-bottom: 0;
 }
 
@@ -97,117 +80,140 @@ body {
   border-bottom: none;
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 1rem;
+/* Move Date to the Left Column */
+.blog-list-page article header {
+  display: contents;
 }
 
-h1 { font-size: 2.5rem; line-height: 1.1; }
-h2 { font-size: 1.75rem; margin-top: 2rem; }
-
-/* Engineering Details (The "Stripe.dev" touch) */
-.blog-list-page article header h2::before {
-  content: "// ";
-  color: var(--muted);
+.blog-list-page article header time {
+  grid-column: 1;
   font-family: var(--ifm-font-family-monospace);
-  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.5rem;
+}
+
+.blog-list-page article > div:last-child,
+.blog-list-page article header h2 {
+  grid-column: 2;
+}
+
+.blog-list-page article header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .blog-list-page article header h2 a {
-  text-decoration: none;
   color: var(--ink);
-  transition: color 0.2s ease;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .blog-list-page article header h2 a:hover {
   color: var(--accent);
 }
 
-/* Metadata */
-time, .margin-vert--md {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.85rem;
+.blog-list-page article .markdown {
+  font-size: 1rem;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  line-height: 1.6;
 }
 
-/* Buttons */
-.button {
-  text-transform: none;
+/* Blog Post Tags in List */
+.blog-list-page article footer {
+  grid-column: 2;
+  margin-top: 1rem;
+}
+
+.badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: none;
+  font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.5rem 1.25rem;
-  border: 1px solid var(--line);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
-.button--primary {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: #fff !important;
-}
-
-.button--primary:hover {
-  background-color: var(--ifm-color-primary-dark);
-  border-color: var(--ifm-color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
-}
-
-/* Sidebar */
+/* Sidebar Styling (stripe.dev style) */
 aside {
-  border-left: var(--thin-border) !important;
-  padding-left: 1.5rem !important;
+  border-left: 1px solid var(--line) !important;
+  padding-left: 2rem !important;
 }
 
 [class*='blogSidebar'] {
   border: none !important;
   background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+}
+
+.sidebarItemTitle_node_modules-\@docusaurus-theme-classic-lib-theme-BlogSidebar-Desktop-styles-module,
+.menu__title {
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--muted) !important;
+  margin-bottom: 1rem !important;
 }
 
 .menu__link {
   font-size: 0.9rem;
-  font-weight: 500;
+  padding: 0.4rem 0.75rem;
   color: var(--muted);
-  border-radius: var(--ifm-global-radius);
-  margin-bottom: 2px;
+  border-radius: 4px;
 }
 
 .menu__link--active {
-  background-color: var(--accent-soft) !important;
+  background: var(--accent-soft) !important;
   color: var(--accent) !important;
 }
 
-/* Code Blocks */
-code {
-  background-color: var(--accent-soft);
-  color: var(--accent);
-  border: none;
-  font-size: 0.9em;
-  padding: 0.2em 0.4em;
+/* Typography for Posts */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
 }
 
-/* Blockquotes */
-blockquote {
-  border-left: 4px solid var(--accent);
+/* Code & Blockquotes */
+code {
   background: var(--accent-soft);
+  color: var(--accent);
+  border: none;
+}
+
+blockquote {
+  border-left: 4px solid var(--line);
   color: var(--muted);
-  padding: 1rem 1.5rem;
+  padding-left: 1.5rem;
   margin: 2rem 0;
 }
 
-/* Hide Footer as requested */
+/* Footer (Hidden as requested) */
 .footer {
   display: none !important;
 }
 
-/* Container Spacing */
-.container {
-  max-width: 1000px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .blog-list-page article {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .blog-list-page article header time {
+    grid-column: 1;
+    padding-top: 0;
+  }
+  
+  .blog-list-page article header h2,
+  .blog-list-page article .markdown,
+  .blog-list-page article footer {
+    grid-column: 1;
+  }
 }
