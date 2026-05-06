@@ -7,6 +7,8 @@ slug: obsidian-example
 
 This post is plain Markdown copied from Obsidian.
 
+{/* truncate */}
+
 You can embed an image from `static/img` like this:
 
 ![[docusaurus.png]]

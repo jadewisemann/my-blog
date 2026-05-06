@@ -5,7 +5,7 @@ import obsidianLinks from "./src/remark/obsidian-links.js";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "My Blog",
-  tagline: "Notes from Obsidian",
+  tagline: "Personal notes, shipped raw.",
   favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -18,7 +18,7 @@ const config = {
 
   stylesheets: [
     {
-      href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap",
+      href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@700;800&family=Space+Mono:wght@400;700&display=swap",
       type: "text/css",
     },
   ],
@@ -42,7 +42,7 @@ const config = {
         blog: {
           showReadingTime: true,
           blogTitle: "Blog",
-          blogDescription: "Markdown notes published from Obsidian.",
+          blogDescription: "Personal notes, experiments, and references.",
           remarkPlugins: [obsidianLinks],
           feedOptions: {
             type: ["rss", "atom"],
@@ -69,11 +69,6 @@ const config = {
       navbar: {
         title: "My Blog",
         items: [{ to: "/blog", label: "Blog", position: "left" }],
-      },
-      footer: {
-        style: "dark",
-        links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} My Blog.`,
       },
       prism: {
         theme: prismThemes.github,
