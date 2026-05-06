@@ -188,33 +188,29 @@ code {
   background-color: var(--acid) !important;
 }
 
-/* Sidebar / Menu */
-aside,
-[class*='sidebar'],
-[class*='blogSidebar'] {
+/* Sidebar / Menu - Single Top-level Box */
+aside {
+  border: 2px solid var(--line) !important;
+  background: var(--paper) !important;
+  padding: 1.5rem !important;
+  box-shadow: 6px 6px 0 var(--line) !important;
+  margin-bottom: 2rem !important;
+  height: fit-content !important;
+}
+
+/* Ensure internal elements don't get their own boxes */
+aside nav,
+aside div,
+aside ul,
+aside li {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-  padding: 0 !important;
-  margin-bottom: 2rem !important;
-}
-
-/* Boxing only the top part (Title) of the sidebar */
-[class*='blogSidebar'] > nav > div,
-aside h3,
-.menu__title {
-  border: 2px solid var(--line) !important;
-  background: var(--paper) !important;
-  padding: 1rem !important;
-  box-shadow: 6px 6px 0 var(--line) !important;
-  margin-bottom: 1.5rem !important;
-  font-weight: 700;
-  text-transform: uppercase;
-  display: block;
 }
 
 .menu {
   background: transparent !important;
+  padding: 0 !important;
 }
 
 .menu__list {
@@ -223,25 +219,20 @@ aside h3,
 
 .menu__link {
   border-radius: 0 !important;
-  margin-bottom: 0.5rem !important;
-  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.25rem !important;
+  padding: 0.5rem 0.75rem !important;
   transition: all 140ms ease !important;
-  border: 1px solid transparent !important;
 }
 
 .menu__link:hover {
   background-color: var(--acid) !important;
   color: #fff !important;
-  border: 1px solid var(--line) !important;
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--line);
 }
 
 .menu__link--active {
   background-color: var(--acid) !important;
   color: #fff !important;
-  border: 2px solid var(--line) !important;
-  box-shadow: 4px 4px 0 var(--line);
+  font-weight: 700;
 }
 
 /* Blog Post Page Content Wrapping */
