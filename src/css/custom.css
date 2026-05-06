@@ -12,23 +12,22 @@
 }
 
 :root {
-  /* Toys Palette */
-  --bg: #f4f1e8;
-  --ink: #0a0a0a;
-  --muted: #5c5951;
-  --line: #0a0a0a;
-  --paper: #fffdf3;
-  --acid: #d7ff35;
+ /* Toys Palette */
+ --bg: #f4f1e8;
+ --ink: #0a0a0a;
+ --muted: #5c5951;
+ --line: #0a0a0a;
+ --paper: #fffdf3;
+ --acid: #9d4edd; /* Electric Purple for better visibility */
 
-  /* Docusaurus Mapping */
-  --ifm-color-primary: var(--acid);
-  --ifm-color-primary-dark: #c5eb30;
-  --ifm-color-primary-darker: #badf2d;
-  --ifm-color-primary-darkest: #99b825;
-  --ifm-color-primary-light: #dcff51;
-  --ifm-color-primary-lighter: #dfff5f;
-  --ifm-color-primary-lightest: #eaff8b;
-
+ /* Docusaurus Mapping */
+ --ifm-color-primary: var(--acid);
+ --ifm-color-primary-dark: #7b2cbf;
+ --ifm-color-primary-darker: #5a189a;
+ --ifm-color-primary-darkest: #3c096c;
+ --ifm-color-primary-light: #c77dff;
+ --ifm-color-primary-lighter: #e0aaff;
+ --ifm-color-primary-lightest: #f3e8ff;
   --ifm-background-color: var(--bg);
   --ifm-font-color-base: var(--ink);
   --ifm-navbar-background-color: var(--paper);
@@ -190,28 +189,29 @@ code {
 }
 
 /* Sidebar / Menu */
-aside[class*='sidebar'],
+aside,
+[class*='sidebar'],
 [class*='blogSidebar'] {
-  border: 2px solid var(--line);
-  background: var(--paper);
-  padding: 1.5rem;
-  box-shadow: 6px 6px 0 var(--line);
-  margin-bottom: 2rem;
-  height: fit-content;
+  border: 2px solid var(--line) !important;
+  background: var(--paper) !important;
+  padding: 1.5rem !important;
+  box-shadow: 6px 6px 0 var(--line) !important;
+  margin-bottom: 2rem !important;
+  height: fit-content !important;
 }
 
 .menu {
-  background: transparent;
+  background: transparent !important;
 }
 
 .menu__link {
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 .menu__link--active {
   background-color: var(--acid) !important;
-  color: var(--ink) !important;
-  border: 2px solid var(--line);
+  color: #fff !important; /* Better contrast for purple */
+  border: 2px solid var(--line) !important;
 }
 
 /* Blog Post Page Content Wrapping */
@@ -232,9 +232,7 @@ aside[class*='sidebar'],
 
 /* Footer */
 .footer {
-  border-top: 2px solid var(--line);
-  background-color: var(--ink) !important;
-  color: var(--bg) !important;
+  display: none !important; /* Remove footer as requested */
 }
 
 /* Custom for Blog Post */
