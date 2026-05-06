@@ -3,20 +3,20 @@
  */
 
  :root {
-  /* High contrast colors */
-  --ifm-color-primary: #3b82f6; /* Electric Blue */
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-darkest: #1e40af;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #bfdbfe;
+  /* High contrast & Vibrant colors (Neo-Brutalism) */
+  --ifm-color-primary: #ff3e00; /* Vibrant Orange/Red */
+  --ifm-color-primary-dark: #cc3200;
+  --ifm-color-primary-darker: #b32c00;
+  --ifm-color-primary-darkest: #801f00;
+  --ifm-color-primary-light: #ff6533;
+  --ifm-color-primary-lighter: #ff8b66;
+  --ifm-color-primary-lightest: #ffb299;
 
-  /* Brutalist UI variables */
-  --brutalist-border-width: 3px;
+  /* Brutalist UI variables - Thicker & Sharper */
+  --brutalist-border-width: 4px;
   --brutalist-border: var(--brutalist-border-width) solid #000;
-  --brutalist-shadow: 6px 6px 0px #000;
-  --brutalist-shadow-hover: 3px 3px 0px #000;
+  --brutalist-shadow: 8px 8px 0px #000;
+  --brutalist-shadow-hover: 0px 0px 0px #000; /* Pressed effect */
 
   /* Infima Overrides */
   --ifm-global-radius: 0px;
@@ -26,9 +26,9 @@
   --ifm-pre-border-radius: 0px;
   --ifm-code-border-radius: 0px;
   
-  --ifm-navbar-background-color: #f5f5dc; /* Beige / Bone */
-  --ifm-background-color: #f5f5dc;
-  --ifm-font-color-base: #1a1a1a; /* Slightly softer black for better harmony with beige */
+  --ifm-navbar-background-color: #fcfcfc;
+  --ifm-background-color: #fcfcfc;
+  --ifm-font-color-base: #000;
   
   --ifm-navbar-shadow: none;
   --ifm-footer-background-color: #000;
@@ -37,22 +37,22 @@
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
-  /* Fonts */
+  /* Fonts - Utilitarian & Monospace */
   --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
-  --ifm-font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --ifm-line-height-base: 1.65;
-  --ifm-paragraph-margin-bottom: 1.5rem;
+  --ifm-font-family-monospace: "Space Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+  --ifm-line-height-base: 1.6;
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary: #ff3e00;
   --ifm-background-color: #000;
   --ifm-font-color-base: #fff;
   --ifm-navbar-background-color: #000;
   
   --brutalist-border: var(--brutalist-border-width) solid #fff;
-  --brutalist-shadow: 6px 6px 0px #fff;
-  --brutalist-shadow-hover: 3px 3px 0px #fff;
+  --brutalist-shadow: 8px 8px 0px #fff;
+  --brutalist-shadow-hover: 0px 0px 0px #fff;
+}
 
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.2);
 }
@@ -78,13 +78,13 @@
 .card {
   border: var(--brutalist-border);
   box-shadow: var(--brutalist-shadow);
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: all 0.15s ease-in-out;
   background-color: var(--ifm-background-color);
   margin-bottom: 2rem;
 }
 
 .card:hover {
-  transform: translate(3px, 3px);
+  transform: translate(4px, 4px);
   box-shadow: var(--brutalist-shadow-hover);
 }
 
@@ -94,12 +94,12 @@
   box-shadow: var(--brutalist-shadow);
   text-transform: uppercase;
   font-weight: 900;
-  letter-spacing: 0.05em;
-  transition: transform 0.1s, box-shadow 0.1s;
+  letter-spacing: 0.1em;
+  transition: all 0.1s ease-in-out;
 }
 
 .button:hover {
-  transform: translate(3px, 3px);
+  transform: translate(4px, 4px);
   box-shadow: var(--brutalist-shadow-hover);
 }
 
@@ -125,11 +125,11 @@
 .pagination-nav__link {
   border: var(--brutalist-border) !important;
   box-shadow: var(--brutalist-shadow);
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: all 0.1s ease-in-out;
 }
 
 .pagination-nav__link:hover {
-  transform: translate(3px, 3px);
+  transform: translate(4px, 4px);
   box-shadow: var(--brutalist-shadow-hover);
 }
 
