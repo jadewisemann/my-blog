@@ -1,30 +1,166 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Modern Minimalist & Brutalist Theme for Docusaurus
  */
 
-/* You can override the default Infima variables here. */
-:root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+ :root {
+  /* High contrast colors */
+  --ifm-color-primary: #e0ff00; /* Neon Yellow-Green */
+  --ifm-color-primary-dark: #c6e300;
+  --ifm-color-primary-darker: #bbd600;
+  --ifm-color-primary-darkest: #9ab000;
+  --ifm-color-primary-light: #e5ff26;
+  --ifm-color-primary-lighter: #e8ff39;
+  --ifm-color-primary-lightest: #efff73;
+
+  /* Brutalist UI variables */
+  --brutalist-border-width: 3px;
+  --brutalist-border: var(--brutalist-border-width) solid #000;
+  --brutalist-shadow: 6px 6px 0px #000;
+  --brutalist-shadow-hover: 3px 3px 0px #000;
+
+  /* Infima Overrides */
+  --ifm-global-radius: 0px;
+  --ifm-button-border-radius: 0px;
+  --ifm-card-border-radius: 0px;
+  --ifm-pagination-nav-border-radius: 0px;
+  --ifm-pre-border-radius: 0px;
+  --ifm-code-border-radius: 0px;
+  
+  --ifm-navbar-background-color: #fff;
+  --ifm-background-color: #fff;
+  --ifm-font-color-base: #000;
+  
+  --ifm-navbar-shadow: none;
+  --ifm-footer-background-color: #000;
+  --ifm-footer-color: #fff;
+  --ifm-footer-link-color: var(--ifm-color-primary);
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #e0ff00;
+  --ifm-background-color: #000;
+  --ifm-font-color-base: #fff;
+  --ifm-navbar-background-color: #000;
+  
+  --brutalist-border: var(--brutalist-border-width) solid #fff;
+  --brutalist-shadow: 6px 6px 0px #fff;
+  --brutalist-shadow-hover: 3px 3px 0px #fff;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.2);
+}
+
+/* Global Brutalist Styles */
+
+/* Navbar */
+.navbar {
+  border-bottom: var(--brutalist-border);
+}
+
+.navbar__inner {
+  padding: 0.5rem 1rem;
+}
+
+.navbar__brand {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+/* Cards (Blog posts, etc.) */
+.card {
+  border: var(--brutalist-border);
+  box-shadow: var(--brutalist-shadow);
+  transition: transform 0.1s, box-shadow 0.1s;
+  background-color: var(--ifm-background-color);
+  margin-bottom: 2rem;
+}
+
+.card:hover {
+  transform: translate(3px, 3px);
+  box-shadow: var(--brutalist-shadow-hover);
+}
+
+/* Buttons */
+.button {
+  border: var(--brutalist-border);
+  box-shadow: var(--brutalist-shadow);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.button:hover {
+  transform: translate(3px, 3px);
+  box-shadow: var(--brutalist-shadow-hover);
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  color: #000 !important;
+}
+
+/* Sidebar / Menu */
+.menu__link {
+  border-radius: 0 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu__link--active {
+  background-color: var(--ifm-color-primary) !important;
+  color: #000 !important;
+  border: var(--brutalist-border);
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border: var(--brutalist-border) !important;
+  box-shadow: var(--brutalist-shadow);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.pagination-nav__link:hover {
+  transform: translate(3px, 3px);
+  box-shadow: var(--brutalist-shadow-hover);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+code {
+  border-radius: 0;
+  border: 1px solid currentColor;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* Footer */
+.footer {
+  border-top: var(--brutalist-border);
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.footer__title, .footer__link-item, .footer__copyright {
+  color: #fff !important;
+}
+
+/* Blog specific */
+.blog-list-page article {
+  margin-bottom: 4rem;
+}
+
+.markdown img {
+  border: var(--brutalist-border);
+  box-shadow: var(--brutalist-shadow);
 }
