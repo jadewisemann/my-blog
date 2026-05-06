@@ -1,275 +1,213 @@
 /**
- * Toys-inspired Neo-Brutalist Theme for Docusaurus
+ * Stripe Developer & Engineering Aesthetic for Docusaurus
+ * A blend of clean minimalism and subtle technical brutalism.
  */
 
-@font-face {
-  font-family: "Lilex Variable";
-  src: url("https://cdn.jsdelivr.net/fontsource/fonts/lilex:vf@latest/latin-wght-normal.woff2")
-      format("woff2-variations");
-  font-weight: 100 700;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
- /* Toys Palette */
- --bg: #f4f1e8;
- --ink: #0a0a0a;
- --muted: #5c5951;
- --line: #0a0a0a;
- --paper: #fffdf3;
- --acid: #9d4edd; /* Electric Purple for better visibility */
+  /* Stripe-inspired Palette */
+  --bg: #ffffff;
+  --ink: #1a1f36;
+  --muted: #4f566b;
+  --line: #e3e8ee;
+  --accent: #635bff; /* Stripe Blurple */
+  --accent-soft: #f6f9fc;
+  --paper: #ffffff;
+  
+  /* Docusaurus Mapping */
+  --ifm-color-primary: var(--accent);
+  --ifm-color-primary-dark: #5851db;
+  --ifm-color-primary-darker: #4c46bc;
+  --ifm-color-primary-darkest: #3a3592;
+  --ifm-color-primary-light: #7d75ff;
+  --ifm-color-primary-lighter: #9a94ff;
+  --ifm-color-primary-lightest: #c5c1ff;
 
- /* Docusaurus Mapping */
- --ifm-color-primary: var(--acid);
- --ifm-color-primary-dark: #7b2cbf;
- --ifm-color-primary-darker: #5a189a;
- --ifm-color-primary-darkest: #3c096c;
- --ifm-color-primary-light: #c77dff;
- --ifm-color-primary-lighter: #e0aaff;
- --ifm-color-primary-lightest: #f3e8ff;
   --ifm-background-color: var(--bg);
   --ifm-font-color-base: var(--ink);
-  --ifm-navbar-background-color: var(--paper);
-  --ifm-footer-background-color: var(--ink);
+  --ifm-navbar-background-color: var(--bg);
   
-  --ifm-font-family-base: "Lilex Variable", "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
-  --ifm-font-family-monospace: "Lilex Variable", monospace;
+  --ifm-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, monospace;
   
-  --ifm-global-radius: 0px;
-  --ifm-button-border-radius: 0px;
+  --ifm-global-radius: 4px; /* Subtle curvature like Stripe */
+  --ifm-button-border-radius: 4px;
   
-  /* Toys Grid Background */
-  --grid-size: 48px;
-  --grid-line: var(--line);
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-padding-vertical: 0.75rem;
+  
+  /* Grid & Lines */
+  --thin-border: 1px solid var(--line);
 }
 
 [data-theme='dark'] {
-  --bg: #0a0a0a;
-  --ink: #f4f1e8;
-  --muted: #a3a19a;
-  --line: #f4f1e8;
-  --paper: #1a1a1a;
-  --acid: #d7ff35;
-
-  --ifm-navbar-background-color: var(--paper);
-  --ifm-background-color: var(--bg);
-  
-  --grid-line: rgba(244, 241, 232, 0.2);
+  --bg: #0a0c10;
+  --ink: #adbac7;
+  --muted: #768390;
+  --line: #22272e;
+  --accent: #7d75ff;
+  --paper: #1c2128;
+  --accent-soft: #161b22;
 }
 
-/* Base Body Styles */
+/* Base Styles */
 body {
-  background:
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-      var(--bg);
-  background-size: var(--grid-size) var(--grid-size);
-  background-position: -1px -1px;
-}
-
-/* Layout */
-.container {
-  max-width: 1180px;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Navbar */
 .navbar {
-  border: 2px solid var(--line);
-  background: var(--paper);
-  box-shadow: 6px 6px 0 var(--line);
-  margin: 20px auto;
-  width: min(1180px, calc(100vw - 28px));
-  padding: 0 1rem;
+  border-bottom: var(--thin-border);
 }
 
 .navbar__title {
   font-weight: 700;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
-/* Cards (Blog/Docs) */
+.navbar__item {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Cards & Containers */
 .card {
-  border: 2px solid var(--line) !important;
+  border: var(--thin-border) !important;
   background: var(--paper) !important;
-  border-radius: 0 !important;
-  box-shadow: none;
-  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
-  padding: 18px;
+  border-radius: var(--ifm-global-radius) !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  transform: translate(-4px, -4px);
-  background-color: var(--acid) !important;
-  box-shadow: 8px 8px 0 var(--line);
+  border-color: var(--accent) !important;
 }
 
-/* Blog List specific */
+/* Blog List Page */
 .blog-list-page article {
-  border: 2px solid var(--line);
-  background: var(--paper);
-  padding: clamp(16px, 3vw, 32px);
-  margin-bottom: 28px;
-  box-shadow: 10px 10px 0 var(--line);
-  transition: transform 140ms ease, box-shadow 140ms ease;
+  border-bottom: var(--thin-border);
+  padding: 3rem 0;
+  margin-bottom: 0;
 }
 
-.blog-list-page article:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 14px 14px 0 var(--line);
+.blog-list-page article:last-of-type {
+  border-bottom: none;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  font-weight: 260;
-  font-variation-settings: "wght" 260;
-  text-transform: lowercase; /* Matching 'toys' style */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: clamp(48px, 10vw, 120px);
-  line-height: 0.8;
-  font-weight: 180;
-  font-variation-settings: "wght" 180;
+h1 { font-size: 2.5rem; line-height: 1.1; }
+h2 { font-size: 1.75rem; margin-top: 2rem; }
+
+/* Engineering Details (The "Stripe.dev" touch) */
+.blog-list-page article header h2::before {
+  content: "// ";
+  color: var(--muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 400;
 }
 
-/* Blog Meta */
-.margin-vert--lg {
-  margin-top: 0 !important;
-}
-
-header h2 a {
-  font-size: clamp(28px, 4vw, 48px);
-  line-height: 0.98;
+.blog-list-page article header h2 a {
   text-decoration: none;
   color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.blog-list-page article header h2 a:hover {
+  color: var(--accent);
+}
+
+/* Metadata */
+time, .margin-vert--md {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Buttons */
 .button {
-  border: 2px solid var(--line);
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 4px 4px 0 var(--line);
-  transition: all 140ms ease;
-  font-weight: 620;
-  text-transform: uppercase;
-}
-
-.button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--line);
-  background-color: var(--acid);
+  text-transform: none;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
 }
 
 .button--primary {
-  background-color: var(--acid);
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff !important;
 }
 
-/* Code */
-code {
-  background-color: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 0;
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 91, 255, 0.2);
 }
 
-/* Pagination */
-.pagination-nav__link {
-  border: 2px solid var(--line) !important;
-  background: var(--paper) !important;
-  box-shadow: 6px 6px 0 var(--line);
-  transition: all 140ms ease;
-}
-
-.pagination-nav__link:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(--line);
-  background-color: var(--acid) !important;
-}
-
-/* Sidebar / Menu - Single Top-level Box */
+/* Sidebar */
 aside {
-  border: 2px solid var(--line) !important;
-  background: var(--paper) !important;
-  padding: 1.5rem !important;
-  box-shadow: 6px 6px 0 var(--line) !important;
-  margin-bottom: 2rem !important;
-  height: fit-content !important;
+  border-left: var(--thin-border) !important;
+  padding-left: 1.5rem !important;
 }
 
-/* Ensure internal elements don't get their own boxes */
-aside nav,
-aside div,
-aside ul,
-aside li {
+[class*='blogSidebar'] {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-}
-
-.menu {
-  background: transparent !important;
   padding: 0 !important;
-}
-
-.menu__list {
-  padding-left: 0 !important;
 }
 
 .menu__link {
-  border-radius: 0 !important;
-  margin-bottom: 0.25rem !important;
-  padding: 0.5rem 0.75rem !important;
-  transition: all 140ms ease !important;
-}
-
-.menu__link:hover {
-  background-color: var(--acid) !important;
-  color: #fff !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 2px;
 }
 
 .menu__link--active {
-  background-color: var(--acid) !important;
-  color: #fff !important;
-  font-weight: 700;
+  background-color: var(--accent-soft) !important;
+  color: var(--accent) !important;
 }
 
-/* Blog Post Page Content Wrapping */
-.blog-post-page main {
-  border: 2px solid var(--line);
-  background: var(--paper);
-  padding: clamp(16px, 4vw, 48px);
-  box-shadow: 10px 10px 0 var(--line);
-  margin-bottom: 3rem;
+/* Code Blocks */
+code {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border: none;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
 }
 
-.blog-post-page article {
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--muted);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
 }
 
-/* Footer */
+/* Hide Footer as requested */
 .footer {
-  display: none !important; /* Remove footer as requested */
+  display: none !important;
 }
 
-/* Custom for Blog Post */
-.markdown blockquote {
-  border: 2px solid var(--line);
-  background: var(--paper);
-  box-shadow: 6px 6px 0 var(--line);
-  padding: 1rem;
-}
-
-@media (max-width: 720px) {
-  :root {
-    --grid-size: 32px;
-  }
-  
-  .navbar {
-    box-shadow: 4px 4px 0 var(--line);
-  }
+/* Container Spacing */
+.container {
+  max-width: 1000px;
 }
