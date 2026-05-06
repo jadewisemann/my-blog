@@ -1,202 +1,230 @@
 /**
- * Modern Minimalist & Brutalist Theme for Docusaurus
+ * Toys-inspired Neo-Brutalist Theme for Docusaurus
  */
 
- :root {
-  /* High contrast & Vibrant colors (Neo-Brutalism) */
-  --ifm-color-primary: #ff3e00; /* Vibrant Orange/Red */
-  --ifm-color-primary-dark: #cc3200;
-  --ifm-color-primary-darker: #b32c00;
-  --ifm-color-primary-darkest: #801f00;
-  --ifm-color-primary-light: #ff6533;
-  --ifm-color-primary-lighter: #ff8b66;
-  --ifm-color-primary-lightest: #ffb299;
+@font-face {
+  font-family: "Lilex Variable";
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/lilex:vf@latest/latin-wght-normal.woff2")
+      format("woff2-variations");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  /* Brutalist UI variables - Thicker & Sharper */
-  --brutalist-border-width: 4px;
-  --brutalist-border: var(--brutalist-border-width) solid #000;
-  --brutalist-shadow: 8px 8px 0px #000;
-  --brutalist-shadow-hover: 0px 0px 0px #000; /* Pressed effect */
+:root {
+  /* Toys Palette */
+  --bg: #f4f1e8;
+  --ink: #0a0a0a;
+  --muted: #5c5951;
+  --line: #0a0a0a;
+  --paper: #fffdf3;
+  --acid: #d7ff35;
 
-  /* Infima Overrides */
+  /* Docusaurus Mapping */
+  --ifm-color-primary: var(--acid);
+  --ifm-color-primary-dark: #c5eb30;
+  --ifm-color-primary-darker: #badf2d;
+  --ifm-color-primary-darkest: #99b825;
+  --ifm-color-primary-light: #dcff51;
+  --ifm-color-primary-lighter: #dfff5f;
+  --ifm-color-primary-lightest: #eaff8b;
+
+  --ifm-background-color: var(--bg);
+  --ifm-font-color-base: var(--ink);
+  --ifm-navbar-background-color: var(--paper);
+  --ifm-footer-background-color: var(--ink);
+  
+  --ifm-font-family-base: "Lilex Variable", "IBM Plex Mono", "Roboto Mono", Consolas, monospace;
+  --ifm-font-family-monospace: "Lilex Variable", monospace;
+  
   --ifm-global-radius: 0px;
   --ifm-button-border-radius: 0px;
-  --ifm-card-border-radius: 0px;
-  --ifm-pagination-nav-border-radius: 0px;
-  --ifm-pre-border-radius: 0px;
-  --ifm-code-border-radius: 0px;
   
-  --ifm-navbar-background-color: #fcfcfc;
-  --ifm-background-color: #fcfcfc;
-  --ifm-font-color-base: #000;
-  
-  --ifm-navbar-shadow: none;
-  --ifm-footer-background-color: #000;
-  --ifm-footer-color: #fff;
-  --ifm-footer-link-color: var(--ifm-color-primary);
-
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-
-  /* Fonts - Utilitarian & Monospace */
-  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
-  --ifm-font-family-monospace: "Space Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-  --ifm-line-height-base: 1.6;
+  /* Toys Grid Background */
+  --grid-size: 48px;
+  --grid-line: var(--line);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #ff3e00;
-  --ifm-background-color: #000;
-  --ifm-font-color-base: #fff;
-  --ifm-navbar-background-color: #000;
-  
-  --brutalist-border: var(--brutalist-border-width) solid #fff;
-  --brutalist-shadow: 8px 8px 0px #fff;
-  --brutalist-shadow-hover: 0px 0px 0px #fff;
+  --bg: #0a0a0a;
+  --ink: #f4f1e8;
+  --muted: #a3a19a;
+  --line: #f4f1e8;
+  --paper: #1a1a1a;
+  --acid: #d7ff35;
 
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.2);
+  --ifm-navbar-background-color: var(--paper);
+  --ifm-background-color: var(--bg);
+  
+  --grid-line: rgba(244, 241, 232, 0.2);
 }
 
-/* Global Brutalist Styles */
+/* Base Body Styles */
+body {
+  background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+      var(--bg);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: -1px -1px;
+}
+
+/* Layout */
+.container {
+  max-width: 1180px;
+}
 
 /* Navbar */
 .navbar {
-  border-bottom: var(--brutalist-border);
+  border: 2px solid var(--line);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--line);
+  margin: 20px auto;
+  width: min(1180px, calc(100vw - 28px));
+  padding: 0 1rem;
 }
 
-.navbar__inner {
-  padding: 0.5rem 1rem;
-}
-
-.navbar__brand {
-  font-weight: 900;
+.navbar__title {
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.05em;
 }
 
-/* Cards (Blog posts, etc.) */
+/* Cards (Blog/Docs) */
 .card {
-  border: var(--brutalist-border);
-  box-shadow: var(--brutalist-shadow);
-  transition: all 0.15s ease-in-out;
-  background-color: var(--ifm-background-color);
-  margin-bottom: 2rem;
+  border: 2px solid var(--line) !important;
+  background: var(--paper) !important;
+  border-radius: 0 !important;
+  box-shadow: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+  padding: 18px;
 }
 
 .card:hover {
-  transform: translate(4px, 4px);
-  box-shadow: var(--brutalist-shadow-hover);
+  transform: translate(-4px, -4px);
+  background-color: var(--acid) !important;
+  box-shadow: 8px 8px 0 var(--line);
+}
+
+/* Blog List specific */
+.blog-list-page article {
+  border: 2px solid var(--line);
+  background: var(--paper);
+  padding: clamp(16px, 3vw, 32px);
+  margin-bottom: 28px;
+  box-shadow: 10px 10px 0 var(--line);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.blog-list-page article:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 14px 14px 0 var(--line);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 260;
+  font-variation-settings: "wght" 260;
+  text-transform: lowercase; /* Matching 'toys' style */
+}
+
+h1 {
+  font-size: clamp(48px, 10vw, 120px);
+  line-height: 0.8;
+  font-weight: 180;
+  font-variation-settings: "wght" 180;
+}
+
+/* Blog Meta */
+.margin-vert--lg {
+  margin-top: 0 !important;
+}
+
+header h2 a {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 0.98;
+  text-decoration: none;
+  color: var(--ink);
 }
 
 /* Buttons */
 .button {
-  border: var(--brutalist-border);
-  box-shadow: var(--brutalist-shadow);
+  border: 2px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--line);
+  transition: all 140ms ease;
+  font-weight: 620;
   text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  transition: all 0.1s ease-in-out;
 }
 
 .button:hover {
-  transform: translate(4px, 4px);
-  box-shadow: var(--brutalist-shadow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--line);
+  background-color: var(--acid);
 }
 
 .button--primary {
-  background-color: var(--ifm-color-primary);
-  color: #000 !important;
+  background-color: var(--acid);
 }
 
-/* Sidebar / Menu */
-.menu__link {
-  border-radius: 0 !important;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.menu__link--active {
-  background-color: var(--ifm-color-primary) !important;
-  color: #000 !important;
-  border: var(--brutalist-border);
+/* Code */
+code {
+  background-color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
 }
 
 /* Pagination */
 .pagination-nav__link {
-  border: var(--brutalist-border) !important;
-  box-shadow: var(--brutalist-shadow);
-  transition: all 0.1s ease-in-out;
+  border: 2px solid var(--line) !important;
+  background: var(--paper) !important;
+  box-shadow: 6px 6px 0 var(--line);
+  transition: all 140ms ease;
 }
 
 .pagination-nav__link:hover {
-  transform: translate(4px, 4px);
-  box-shadow: var(--brutalist-shadow-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--line);
+  background-color: var(--acid) !important;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-top: 2.5rem;
+/* Sidebar / Menu */
+.menu {
+  background: transparent;
 }
 
-blockquote {
-  border: var(--brutalist-border);
-  background-color: rgba(59, 130, 246, 0.05);
-  color: var(--ifm-font-color-base);
-  font-style: italic;
-  padding: 1rem 1.5rem;
-  margin: 2rem 0;
-  border-left-width: 10px;
-}
-
-/* Lists */
-.markdown ul, .markdown ol {
-  padding-left: 1.5rem;
-}
-
-.markdown li {
-  margin-bottom: 0.5rem;
-}
-
-code {
+.menu__link {
   border-radius: 0;
-  border: 1px solid currentColor;
-  background-color: rgba(128, 128, 128, 0.1);
 }
 
-/* Badges / Tags */
-.badge {
-  border: 2px solid currentColor;
-  border-radius: 0;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.2rem 0.5rem;
-}
-
-.badge--primary {
-  background-color: var(--ifm-color-primary);
-  color: #000;
+.menu__link--active {
+  background-color: var(--acid) !important;
+  color: var(--ink) !important;
+  border: 2px solid var(--line);
 }
 
 /* Footer */
 .footer {
-  border-top: var(--brutalist-border);
-  background-color: #000 !important;
-  color: #fff !important;
+  border-top: 2px solid var(--line);
+  background-color: var(--ink) !important;
+  color: var(--bg) !important;
 }
 
-.footer__title, .footer__link-item, .footer__copyright {
-  color: #fff !important;
+/* Custom for Blog Post */
+.markdown blockquote {
+  border: 2px solid var(--line);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--line);
+  padding: 1rem;
 }
 
-/* Blog specific */
-.blog-list-page article {
-  margin-bottom: 4rem;
-}
-
-.markdown img {
-  border: var(--brutalist-border);
-  box-shadow: var(--brutalist-shadow);
+@media (max-width: 720px) {
+  :root {
+    --grid-size: 32px;
+  }
+  
+  .navbar {
+    box-shadow: 4px 4px 0 var(--line);
+  }
 }
