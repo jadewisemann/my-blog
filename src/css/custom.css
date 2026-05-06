@@ -190,6 +190,14 @@ code {
 }
 
 /* Sidebar / Menu */
+.blog-sidebar {
+  border: 2px solid var(--line);
+  background: var(--paper);
+  padding: 1rem;
+  box-shadow: 6px 6px 0 var(--line);
+  margin-bottom: 2rem;
+}
+
 .menu {
   background: transparent;
 }
@@ -202,6 +210,22 @@ code {
   background-color: var(--acid) !important;
   color: var(--ink) !important;
   border: 2px solid var(--line);
+}
+
+/* Blog Post Page Content Wrapping */
+.blog-post-page main {
+  border: 2px solid var(--line);
+  background: var(--paper);
+  padding: clamp(16px, 4vw, 48px);
+  box-shadow: 10px 10px 0 var(--line);
+  margin-bottom: 3rem;
+}
+
+.blog-post-page article {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 /* Footer */
