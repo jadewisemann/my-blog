@@ -190,12 +190,14 @@ code {
 }
 
 /* Sidebar / Menu */
-.blog-sidebar {
+aside[class*='sidebar'],
+[class*='blogSidebar'] {
   border: 2px solid var(--line);
   background: var(--paper);
-  padding: 1rem;
+  padding: 1.5rem;
   box-shadow: 6px 6px 0 var(--line);
   margin-bottom: 2rem;
+  height: fit-content;
 }
 
 .menu {
