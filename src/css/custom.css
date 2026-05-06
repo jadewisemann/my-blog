@@ -40,6 +40,8 @@
   /* Fonts */
   --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
   --ifm-font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --ifm-line-height-base: 1.65;
+  --ifm-paragraph-margin-bottom: 1.5rem;
 }
 
 [data-theme='dark'] {
@@ -136,6 +138,27 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 2.5rem;
+}
+
+blockquote {
+  border: var(--brutalist-border);
+  background-color: rgba(59, 130, 246, 0.05);
+  color: var(--ifm-font-color-base);
+  font-style: italic;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  border-left-width: 10px;
+}
+
+/* Lists */
+.markdown ul, .markdown ol {
+  padding-left: 1.5rem;
+}
+
+.markdown li {
+  margin-bottom: 0.5rem;
 }
 
 code {
