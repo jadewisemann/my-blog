@@ -144,6 +144,20 @@ code {
   background-color: rgba(128, 128, 128, 0.1);
 }
 
+/* Badges / Tags */
+.badge {
+  border: 2px solid currentColor;
+  border-radius: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+}
+
+.badge--primary {
+  background-color: var(--ifm-color-primary);
+  color: #000;
+}
+
 /* Footer */
 .footer {
   border-top: var(--brutalist-border);
