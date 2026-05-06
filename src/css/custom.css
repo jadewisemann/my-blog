@@ -26,9 +26,9 @@
   --ifm-pre-border-radius: 0px;
   --ifm-code-border-radius: 0px;
   
-  --ifm-navbar-background-color: #fff;
-  --ifm-background-color: #fff;
-  --ifm-font-color-base: #000;
+  --ifm-navbar-background-color: #f5f5dc; /* Beige / Bone */
+  --ifm-background-color: #f5f5dc;
+  --ifm-font-color-base: #1a1a1a; /* Slightly softer black for better harmony with beige */
   
   --ifm-navbar-shadow: none;
   --ifm-footer-background-color: #000;
