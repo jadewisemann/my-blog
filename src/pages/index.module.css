@@ -1,0 +1,211 @@
+/**
+ * Page-scoped styles for the landing page (src/pages/index.js).
+ * Uses global design tokens defined in src/css/custom.css.
+ */
+
+/* ---------------------------------------------------------------------------
+   Hero
+--------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 5rem;
+  background: var(--blog-hero-gradient);
+  text-align: center;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(79, 70, 229, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--blog-border);
+  background: var(--blog-surface);
+  color: var(--ifm-color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    120deg,
+    var(--ifm-heading-color),
+    var(--ifm-color-primary)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroTagline {
+  margin: 1.25rem auto 0;
+  max-width: 560px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  opacity: 0.85;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.ghostButton {
+  border-color: var(--blog-border);
+}
+
+/* ---------------------------------------------------------------------------
+   Features
+--------------------------------------------------------------------------- */
+.features {
+  padding: 5rem 0;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.featureCard {
+  padding: 2rem;
+  border-radius: var(--ifm-card-border-radius);
+  border: 1px solid var(--blog-border);
+  background: var(--blog-surface);
+  box-shadow: var(--blog-card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--blog-card-shadow-hover);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+.featureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  border-radius: 14px;
+  background: var(--blog-surface-muted);
+  font-size: 1.5rem;
+}
+
+.featureTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.featureText {
+  margin: 0;
+  color: var(--ifm-font-color-base);
+  opacity: 0.82;
+  line-height: 1.65;
+}
+
+/* ---------------------------------------------------------------------------
+   Call to action
+--------------------------------------------------------------------------- */
+.cta {
+  padding: 4rem 0 6rem;
+}
+
+.ctaInner {
+  max-width: 720px;
+  padding: 3.5rem 2rem;
+  border-radius: 28px;
+  text-align: center;
+  background: var(--blog-hero-gradient), var(--blog-surface);
+  border: 1px solid var(--blog-border);
+  box-shadow: var(--blog-card-shadow);
+}
+
+.ctaTitle {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+}
+
+.ctaText {
+  margin: 0 0 2rem;
+  font-size: 1.15rem;
+  color: var(--ifm-font-color-base);
+  opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive
+--------------------------------------------------------------------------- */
+@media (max-width: 996px) {
+  .hero {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .heroTagline {
+    font-size: 1.1rem;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroButtons .button {
+    width: 100%;
+  }
+
+  .features {
+    padding: 3.5rem 0;
+  }
+
+  .ctaInner {
+    padding: 2.5rem 1.5rem;
+  }
+}
