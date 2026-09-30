@@ -103,7 +103,7 @@ const config = {
             title: 'More',
             items: [
               {label: 'Home', to: '/'},
-              {label: 'RSS', href: '/my-blog/blog/rss.xml'},
+              {label: 'RSS', href: 'pathname:///my-blog/blog/rss.xml'},
             ],
           },
           {
