@@ -5,13 +5,13 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ## Installation
 
 ```bash
-yarn
+npm install
 ```
 
 ## Local Development
 
 ```bash
-yarn start
+npm run start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,23 +19,13 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 ## Deployment
 
-Using SSH:
+Deployment is automated with GitHub Actions. Every push to the `master` branch triggers the workflow at `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages at <https://jadewisemann.github.io/my-blog/>.
 
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+To enable this, set the repository's **Settings → Pages → Build and deployment → Source** to **GitHub Actions** (one-time setup). You can also trigger a deployment manually from the Actions tab via **Run workflow** (`workflow_dispatch`).

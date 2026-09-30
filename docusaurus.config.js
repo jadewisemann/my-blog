@@ -20,8 +20,16 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  // Production URL of your site (GitHub Pages project site).
+  url: 'https://jadewisemann.github.io',
+  // For a GitHub project site this is '/<projectName>/'.
+  baseUrl: '/my-blog/',
+
+  // GitHub Pages deployment config.
+  organizationName: 'jadewisemann', // GitHub org/user name.
+  projectName: 'my-blog', // GitHub repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
