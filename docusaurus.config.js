@@ -76,14 +76,47 @@ const config = {
       },
       navbar: {
         title: 'My Blog',
+        hideOnScroll: true,
         items: [
+          {to: '/', label: 'Home', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog/tags', label: 'Tags', position: 'left'},
+          {
+            href: 'https://github.com/jadewisemann/my-blog',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+          },
         ],
       },
       footer: {
         style: 'dark',
-        links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} My Blog.`,
+        links: [
+          {
+            title: 'Content',
+            items: [
+              {label: 'Blog', to: '/blog'},
+              {label: 'Tags', to: '/blog/tags'},
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {label: 'Home', to: '/'},
+              {label: 'RSS', href: '/my-blog/blog/rss.xml'},
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/jadewisemann/my-blog',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} My Blog. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

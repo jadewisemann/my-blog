@@ -1,30 +1,333 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Global styles for the blog. Built on top of Infima (the CSS framework
+ * bundled with the Docusaurus classic template) by overriding its
+ * --ifm-* custom properties and adding a few tasteful component tweaks.
+ *
+ * Design system:
+ *  - Primary palette: refined indigo (calm, modern, high contrast).
+ *  - Typography: system UI stack with Inter fallback, generous line height.
+ *  - Dark mode: deep slate neutrals with an accessible lighter primary.
  */
 
-/* You can override the default Infima variables here. */
+/* ---------------------------------------------------------------------------
+   Fonts
+   Inter is used when available; we gracefully fall back to the platform's
+   native UI font so the site stays fast even without a web font.
+--------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ---------------------------------------------------------------------------
+   Light theme (default)
+--------------------------------------------------------------------------- */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Primary palette — indigo */
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3f34bf;
+  --ifm-color-primary-darkest: #342b9d;
+  --ifm-color-primary-light: #6d66ea;
+  --ifm-color-primary-lighter: #7a73ec;
+  --ifm-color-primary-lightest: #a29bf2;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+  --ifm-heading-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'SFMono-Regular', Menlo,
+    Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.75;
+  --ifm-heading-line-height: 1.25;
+  --ifm-heading-font-weight: 700;
+  --ifm-code-font-size: 92%;
+
+  /* Layout */
+  --ifm-container-width-xl: 1140px;
+  --doc-sidebar-width: 300px;
+
+  /* Neutrals & surfaces */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-heading-color: #1e1b4b;
+  --ifm-font-color-base: #2d2b3a;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.82);
+  --ifm-navbar-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+  --ifm-footer-background-color: #1e1b4b;
+  --ifm-toc-border-color: rgba(15, 23, 42, 0.08);
+
+  /* Links */
+  --ifm-link-color: var(--ifm-color-primary);
+  --ifm-link-hover-color: var(--ifm-color-primary-dark);
+
+  /* Radii & elevation */
+  --ifm-global-radius: 12px;
+  --ifm-card-border-radius: 16px;
+
+  /* Blockquote */
+  --ifm-blockquote-color: #4b4966;
+  --ifm-blockquote-border-color: var(--ifm-color-primary);
+
+  --docusaurus-highlighted-code-line-bg: rgba(79, 70, 229, 0.12);
+
+  /* Custom tokens used by the landing page and components */
+  --blog-hero-gradient: radial-gradient(
+      1200px 600px at 15% -10%,
+      rgba(99, 102, 241, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 100% 0%,
+      rgba(236, 72, 153, 0.14),
+      transparent 55%
+    );
+  --blog-card-shadow: 0 1px 2px rgba(15, 23, 42, 0.06),
+    0 8px 24px rgba(15, 23, 42, 0.06);
+  --blog-card-shadow-hover: 0 4px 8px rgba(79, 70, 229, 0.12),
+    0 20px 40px rgba(79, 70, 229, 0.14);
+  --blog-surface: #ffffff;
+  --blog-surface-muted: #f7f7fb;
+  --blog-border: rgba(15, 23, 42, 0.08);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* ---------------------------------------------------------------------------
+   Dark theme
+--------------------------------------------------------------------------- */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #a5b4fc;
+  --ifm-color-primary-dark: #8b9bfa;
+  --ifm-color-primary-darker: #7e90f9;
+  --ifm-color-primary-darkest: #5a6ff6;
+  --ifm-color-primary-light: #bfccfd;
+  --ifm-color-primary-lighter: #ccd6fe;
+  --ifm-color-primary-lightest: #e3e9ff;
+
+  --ifm-background-color: #0b1020;
+  --ifm-background-surface-color: #11172b;
+  --ifm-heading-color: #eef1ff;
+  --ifm-font-color-base: #cdd2e4;
+  --ifm-navbar-background-color: rgba(11, 16, 32, 0.78);
+  --ifm-navbar-shadow: 0 1px 0 rgba(148, 163, 184, 0.1);
+  --ifm-footer-background-color: #070b16;
+  --ifm-toc-border-color: rgba(148, 163, 184, 0.14);
+
+  --ifm-blockquote-color: #aeb4cc;
+  --ifm-blockquote-border-color: var(--ifm-color-primary);
+
+  --docusaurus-highlighted-code-line-bg: rgba(165, 180, 252, 0.15);
+
+  --blog-hero-gradient: radial-gradient(
+      1200px 600px at 15% -10%,
+      rgba(99, 102, 241, 0.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 100% 0%,
+      rgba(236, 72, 153, 0.18),
+      transparent 55%
+    );
+  --blog-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  --blog-card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.45),
+    0 20px 40px rgba(99, 102, 241, 0.22);
+  --blog-surface: #11172b;
+  --blog-surface-muted: #0f1526;
+  --blog-border: rgba(148, 163, 184, 0.14);
+}
+
+/* ---------------------------------------------------------------------------
+   Base elements
+--------------------------------------------------------------------------- */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  letter-spacing: -0.003em;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+a {
+  transition: color 0.15s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   Navbar — translucent, blurred, sticky feel
+--------------------------------------------------------------------------- */
+.navbar {
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar__link {
+  font-weight: 500;
+}
+
+/* GitHub icon link in the navbar */
+.header-github-link::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.598 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transition: background-color 0.15s ease;
+}
+
+.header-github-link:hover::before {
+  background-color: var(--ifm-color-primary);
+}
+
+/* ---------------------------------------------------------------------------
+   Links & content
+--------------------------------------------------------------------------- */
+.markdown a {
+  text-decoration: none;
+  font-weight: 500;
+  background-image: linear-gradient(
+    var(--ifm-link-color),
+    var(--ifm-link-color)
+  );
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.25s ease, color 0.15s ease;
+}
+
+.markdown a:hover {
+  background-size: 100% 1.5px;
+}
+
+.markdown img {
+  border-radius: var(--ifm-global-radius);
+}
+
+/* Blockquotes */
+.markdown blockquote {
+  border-left-width: 4px;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  background: var(--blog-surface-muted);
+  padding: 0.75rem 1.25rem;
+  font-style: italic;
+}
+
+/* Inline code */
+code {
+  border-radius: 6px;
+  border: 1px solid var(--blog-border);
+}
+
+/* Code blocks */
+.theme-code-block {
+  border-radius: var(--ifm-global-radius) !important;
+  box-shadow: var(--blog-card-shadow);
+}
+
+/* Horizontal rule */
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--blog-border);
+}
+
+/* ---------------------------------------------------------------------------
+   Blog list & posts — card treatment
+--------------------------------------------------------------------------- */
+/* Each post in the list becomes an elevated card. */
+.blog-list-page article {
+  background: var(--blog-surface);
+  border: 1px solid var(--blog-border);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--blog-card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.blog-list-page article:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--blog-card-shadow-hover);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+/* Post title in the list */
+.blog-list-page article h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Blog post reading page */
+.blog-wrapper .theme-blog-post-paginator {
+  margin-top: 2rem;
+}
+
+/* Tags as pills */
+.blog-tags-list li a,
+.margin-vert--md a[href*='/tags/'] {
+  border-radius: 999px;
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons
+--------------------------------------------------------------------------- */
+.button {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.button--primary {
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.28);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.36);
+}
+
+/* ---------------------------------------------------------------------------
+   Footer
+--------------------------------------------------------------------------- */
+.footer {
+  --ifm-footer-link-color: #c7cbe0;
+  --ifm-footer-title-color: #ffffff;
+}
+
+.footer__link-item {
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.footer__link-item:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Pagination / misc
+--------------------------------------------------------------------------- */
+.pagination-nav__link {
+  border-radius: var(--ifm-card-border-radius);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagination-nav__link:hover {
+  box-shadow: var(--blog-card-shadow-hover);
 }
