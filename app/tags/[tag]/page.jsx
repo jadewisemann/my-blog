@@ -4,13 +4,16 @@ import { notFound } from 'next/navigation';
 import { getAllTags, getPostsByTag } from '@/lib/posts';
 import { formatDate } from '@/lib/format';
 
-// Enumerate every tag at build time for static export.
+// Enumerate every tag at build time for static export. The param is
+// URL-encoded so tags containing spaces or non-ASCII characters still produce
+// valid static paths; the page decodes it back before looking the tag up.
 export function generateStaticParams() {
-  return getAllTags().map(({ tag }) => ({ tag }));
+  return getAllTags().map(({ tag }) => ({ tag: encodeURIComponent(tag) }));
 }
 
 export async function generateMetadata({ params }) {
-  const { tag } = await params;
+  const { tag: encodedTag } = await params;
+  const tag = decodeURIComponent(encodedTag);
   return {
     title: `#${tag}`,
     description: `Posts tagged ${tag}.`,
@@ -18,7 +21,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function TagPage({ params }) {
-  const { tag } = await params;
+  const { tag: encodedTag } = await params;
+  const tag = decodeURIComponent(encodedTag);
   const posts = getPostsByTag(tag);
 
   if (posts.length === 0) notFound();

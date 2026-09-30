@@ -34,7 +34,7 @@ export default function BlogIndexPage() {
               <ul className="tag-row">
                 {post.tags.map((tag) => (
                   <li key={tag}>
-                    <Link href={`/tags/${tag}`} className="tag-chip">
+                    <Link href={`/tags/${encodeURIComponent(tag)}`} className="tag-chip">
                       {tag}
                     </Link>
                   </li>

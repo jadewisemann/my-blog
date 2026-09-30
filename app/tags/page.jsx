@@ -20,7 +20,7 @@ export default function TagsPage() {
       <ul className="tag-cloud">
         {tags.map(({ tag, count }) => (
           <li key={tag}>
-            <Link href={`/tags/${tag}`} className="tag-chip tag-chip--lg">
+            <Link href={`/tags/${encodeURIComponent(tag)}`} className="tag-chip tag-chip--lg">
               {tag}
               <span className="tag-chip__count">{count}</span>
             </Link>
